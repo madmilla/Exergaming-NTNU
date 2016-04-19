@@ -1,7 +1,7 @@
-﻿<Application x:Class="KinectTesting.App"
+﻿<Application x:Class="Theia.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:KinectTesting"
+             xmlns:local="clr-namespace:Theia"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
          

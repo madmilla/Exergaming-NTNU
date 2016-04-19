@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace KinectTesting.Properties
+namespace Theia.Properties
 {
 
 
