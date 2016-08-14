@@ -7,6 +7,7 @@ import PIL.Image
 from _thread import *
 import tkinter as tk
 
+
 class ipMenuClass():
 	def __init__(self , master):
 		self.master = master
@@ -32,6 +33,7 @@ class ipMenuClass():
 		self.button.pack()
 		self.button = tk.Button(self.frame, text="Close Window", command=self.close_window)
 		self.frame.pack()
+
 
 
 	def close_window(self):

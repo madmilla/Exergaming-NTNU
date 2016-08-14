@@ -8,7 +8,12 @@ from _thread import *
 import tkinter as tk
 #from tkinter import *
 
-class mainMenuClass():
+## OOP block
+from ReceiverMenuClass import ReceiverMenuClass
+from ServerMenuClass import ServerMenuClass
+from IPMenuClass import ipMenuClass
+
+class MainMenuClass():
 	###########################################
 	# DEFINES
 	###########################################
@@ -20,19 +25,16 @@ class mainMenuClass():
 
 		self.newWindow = tk.Toplevel(self.master)
 		self.app = ipMenuClass(self.newWindow)
-		
 	def openServerPanel(self):
 		print('Button is pressed!')
 
 		self.newWindow = tk.Toplevel(self.master)
 		self.app = ServerMenuClass(self.newWindow)
-
 	def openReceiverPanel(self):
 		print('Button is pressed!')
-
+		#os.system("python ReceiverClass.py")
 		self.newWindow = tk.Toplevel(self.master)
 		self.app = ReceiverMenuClass(self.newWindow)
-
 	def credits(self):
 		popup = tk.Tk()
 		popup.wm_title("About")
