@@ -20,18 +20,14 @@ from _thread import *
 import threading
 import tkinter as tk
 
-#I higher UAC status for mouse controlling
-import sadmin
+import sadmin #Need UAC level raised for mouse controlling and IP address adjustment
 import subprocess
 import pywinauto
-#from pywinauto.findwindows    import find_window
-#from pywinauto.win32functions import SetForegroundWindow
 
 class settings():
 	#HOST = '192.168.137.116'
 	HOST = '10.0.0.1'
 	PORT = 443
-
 
 class mainMenuClass():
 	###########################################
@@ -94,7 +90,6 @@ class mainMenuClass():
 		self.l = tk.Button(master, text="2016", command = self.credits)
 		self.l.pack(fill = "both", expand = "yes")
 		self.frame.pack()
-
 
 class ReceiverMenuClass():
 	def focusWindow(self, processId):
@@ -490,8 +485,6 @@ class ServerMenuClass():
 		#print("Server stopped")
 		#ServerMenuClass.disconnectToServer()
 
-	
-
 class ipMenuClass():
 	def __init__(self , master):
 		self.master = master
@@ -537,15 +530,12 @@ class ipMenuClass():
 	def resetIP(self):
 		os.system("python makeIPStatic.py dhcp")
 
-
-
 if __name__ == "__main__":
 	#if not sadmin.isUserAdmin():
 	#	sadmin.runAsAdmin() 		#Need raised UAC status for being able to control the mouse and keyboard
 	root = tk.Tk()
 	root.title("window")
 	print(settings.HOST)
-	#root.geometry("350x300")
 
 	cls = mainMenuClass(root)
 	root.wm_title("Kubrick Controller")
