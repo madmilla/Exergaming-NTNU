@@ -1,0 +1,3 @@
+C:/PCL/build/CMakeFiles/pcd_write_test.dir
+C:/PCL/build/CMakeFiles/ALL_BUILD.dir
+C:/PCL/build/CMakeFiles/ZERO_CHECK.dir
