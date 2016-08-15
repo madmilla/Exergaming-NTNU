@@ -32,7 +32,11 @@ if __name__ == "__main__":
 	center(root)
 
 	while 1:
-		root.update()
-		ctime = datetime.now()
-		l['text'] = str(datetime.now())
-		sleep(0.05)
+		try:
+			root.update()
+			ctime = datetime.now()
+			l['text'] = str(datetime.now())
+			sleep(0.02)
+		except:
+			print("Clock closed")
+			exit()
