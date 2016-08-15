@@ -1,12 +1,16 @@
 import socket
 import os
 import sys
-import pyautogui
+import time
 from PIL import ImageTk
 import PIL.Image
 from _thread import *
 import tkinter as tk
-
+import pywinauto
+import pyautogui
+from settings import settings
+import win32api
+import win32ui
 
 class ReceiverMenuClass():
 	def focusWindow(self, processId):
@@ -14,6 +18,11 @@ class ReceiverMenuClass():
 		window = app.window_(handle=processId)
 		window.Minimize()
 		window.Maximize()
+		window.SetFocus()
+
+	def focusWindowNormal(self, processId):
+		app = pywinauto.application.Application()
+		window = app.window_(handle=processId)
 		window.SetFocus()
 
 	def close_window(self):
@@ -53,32 +62,31 @@ class ReceiverMenuClass():
 
 				###KINECT
 				if data.decode() == "START_KINECT":
-					if os.path.isfile("C:\\code\\pcd_write_test.exe"):
-						os.startfile('C:\code\pcd_write_test.exe')
+					if os.path.isfile("C:\\code\\kinect\\Kinect_PCD_writer.exe"):
+						os.startfile('C:\code\kinect\Kinect_PCD_writer.exe')
 					else:
 						print("Kinect Executable was not found!")
 				if data.decode() == "STOP_KINECT":
-					os.system("TASKKILL /F /IM pcd_write_test.exe")
+					os.system("TASKKILL /F /IM Kinect_PCD_writer.exe")
 				if data.decode() == "START_KINECT_RECORD":
-					try:
-						Kinect = pywinauto.findwindows.find_windows(title='Point Cloud Viewer')
-						if(len(Kinect) != 0):
-							temp = max(Kinect)
-							self.focusWindow(temp)
-							pyautogui.press('up')
-					except:
-						print("Kinect not started?")
-				if data.decode() == "STOP_KINECT_RECORD":
-					try:
-						Kinect = pywinauto.findwindows.find_windows(title='Point Cloud Viewer')
-						if(len(Kinect) != 0):
-							temp = max(Kinect)
-							self.focusWindow(temp)
-							pyautogui.press('down')
-					except:
-						print("Kinect not started?")
+					#SendKeys.SendKeys("{F8}")
+					#pyautogui.press('f8')
+					#pyautogui.press('F8')
+					PyCWnd1 = win32ui.FindWindow( None, "Vidofnir" )
+					PyCWnd1.SetForegroundWindow()
+					PyCWnd1.SetFocus()
 
-				
+					win32api.keybd_event(0x77, 0, )
+					time.sleep(1)
+					win32api.keybd_event(0x77, 0, 2 )
+				if data.decode() == "STOP_KINECT_RECORD":
+					PyCWnd1 = win32ui.FindWindow( None, "Vidofnir" )
+					PyCWnd1.SetForegroundWindow()
+					PyCWnd1.SetFocus()
+
+					win32api.keybd_event(0x78, 0, )
+					time.sleep(1)
+					win32api.keybd_event(0x78, 0, 2 )
 				### OLD
 				if data.decode() == "STARTALL":
 					os.startfile('C:\\silverfit\\SilverFit-3.0.2.10380\\Games\\PuzzleGame\\PuzzleGame.exe')

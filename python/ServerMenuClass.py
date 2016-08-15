@@ -1,6 +1,7 @@
 import socket
 import os
 import sys
+import time
 import pyautogui
 from PIL import ImageTk
 import PIL.Image
@@ -18,21 +19,15 @@ class ServerMenuClass():
 
 	def disconnectToServer():
 		try:
-			print("Set us back to hell")
 			ServerMenuClass.Server_stop.set()
 			ServerMenuClass.Client_stop.set()
-			print("Close hell")
 			ServerMenuClass.serverSock.close()
 			self.l['text'] ="Welcome to the Server control panel! The server is no longer running!"
-			print("Set us back to hell")
 			ServerMenuClass.l2['text'] = 'Server closed'
-			print("Set us back to hell")
 			self.master.wm_title("OFF | Server Panel")
-			print("Set us back to hell")
 			self.startserver.configure(text = 'Start server',command = self.startServer)
-			print("Set us back to hell")
 		except:
-			print("FUCK")
+			print("Something went wrong with the connection to the server.")
 
 
 	### unneeded?
@@ -109,19 +104,19 @@ class ServerMenuClass():
 		self.l = tk.Label(master, text ="Termination!").grid(row=2,column=3)
 
 		#Prestart channel
-		self.B = tk.Button(master, text ="Start Game", command = self.startGameCallBack).grid(row=3,column=0)
-		self.B = tk.Button(master, text ="Start Game recording software", command = self.startOBSCallBack).grid(row=4,column=0)
-		self.B = tk.Button(master, text ="Start Bioware", command = self.startBiowareCallBack).grid(row=5,column=0)
-		self.B = tk.Button(master, text ="Hotkey (Hackaround):\nPrestart power-on for Forceplates", command = self.prestartForceplatesCallBack).grid(row=6,column=0)
-		self.B = tk.Button(master, text ="Start Kinect", command = self.startKinectCallBack).grid(row=7,column=0)
+		self.B = tk.Button(master, text ="1. Start Bioware", command = self.startBiowareCallBack).grid(row=3,column=0)
+		self.B = tk.Button(master, text ="2. Prestart the forceplates", command = self.prestartForceplatesCallBack).grid(row=4,column=0)
+		self.B = tk.Button(master, text ="3. Start Kinect", command = self.startKinectCallBack).grid(row=5,column=0)
+		self.B = tk.Button(master, text ="4. Start Game recording software", command = self.startOBSCallBack).grid(row=6,column=0)
+		self.B = tk.Button(master, text ="5. Start Puzzle Game", command = self.startGameCallBack).grid(row=7,column=0)
 
 		#Recording channel
 		self.B = tk.Button(master, text ="Start game recording", command = self.startRecordingCallBack).grid(row=3,column=1)
 		self.B = tk.Button(master, text ="Stop game recording", command = self.stopRecordingCallBack).grid(row=4,column=1)
 		self.B = tk.Button(master, text ="Start BioWare Recording", command = self.startBiowareRecordingCallBack).grid(row=5,column=1)
 		self.B = tk.Button(master, text ="Stop BioWare Recording", command = self.stopBiowareRecordingCallBack).grid(row=6,column=1)
-		self.B = tk.Button(master, text ="Start Kinect Recording", command = self.startKinectRecordingCallBack).grid(row=7,column=1)
-		self.B = tk.Button(master, text ="Stop Kinect Recording", command = self.stopKinectRecordingCallBack).grid(row=8,column=1)
+		self.B = tk.Button(master, text ="Start Kinect Recording Button not working !press F8!", command = self.startKinectRecordingCallBack).grid(row=7,column=1)
+		self.B = tk.Button(master, text ="Stop Kinect Recording  Button not working !press F9!", command = self.stopKinectRecordingCallBack).grid(row=8,column=1)
 
 		
 		#Specials

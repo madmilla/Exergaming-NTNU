@@ -65,9 +65,9 @@ class MainMenuClass():
 		self.panel.pack(side = "top", fill = "both",  expand = "yes") #
 		self.l = tk.Message(master, text="Welcome to the control panel! Please select a mode to run in.",width=200)
 		self.l.pack(fill = "both", expand = "yes")
-		self.B = tk.Button(master, text ="Start Server", command = self.openServerPanel)
+		self.B = tk.Button(master, text ="1. Start Server (lenovo)", command = self.openServerPanel)
 		self.B.pack(fill = "both", expand = "yes")
-		self.B = tk.Button(master, text ="Start Receiver", command = self.openReceiverPanel)
+		self.B = tk.Button(master, text ="2. Start Receiver (both machines!)", command = self.openReceiverPanel)
 		self.B.pack(fill = "both", expand = "yes")
 		self.B = tk.Button(master, text ="Change IP Settings", command = self.openIPSettings)
 		self.B.pack(fill = "both", expand = "yes")
