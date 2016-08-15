@@ -121,9 +121,9 @@ class ReceiverMenuClass():
 				
 				### Puzzlegame
 				if data.decode() == "START_GAME":
-					if os.path.isfile("C:\\silverfit\\SilverFit-3.0.2.10380\\Games\\PuzzleGame\\PuzzleGame.exe"):
+					if os.path.isfile("C:\\Users\\bevguest\\Desktop\\test.bat"):
 						#os.system("start cmd /C \"cd C:\\silverfit\\SilverFit-3.0.2.10380\\Games\\PuzzleGame\" & PuzzleGame.exe")
-						os.startfile('C:\silverfit\SilverFit-3.0.2.10380\Games\PuzzleGame\PuzzleGame.exe')
+						os.startfile('C:\Users\bevguest\Desktop\test.bat')
 						print("Puzzle game should be starting?")
 					else:
 						print("Puzzle game was not found on the specified location.")
