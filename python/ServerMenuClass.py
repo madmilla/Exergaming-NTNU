@@ -45,6 +45,8 @@ class ServerMenuClass():
 		self.broadcast_data(ServerMenuClass.serverSock,B'START_BIOWARE')
 	def prestartForceplatesCallBack(self):
 		self.broadcast_data(ServerMenuClass.serverSock,B'PRESTART_FP')
+	def startClockCallBack(self):
+		self.broadcast_data(ServerMenuClass.serverSock,B'START_CLOCK')
 
 	#RECORD
 	def startRecordingCallBack(self):
@@ -108,23 +110,25 @@ class ServerMenuClass():
 		self.B = tk.Button(master, text ="2. Prestart the forceplates", command = self.prestartForceplatesCallBack).grid(row=4,column=0)
 		self.B = tk.Button(master, text ="3. Start Kinect", command = self.startKinectCallBack).grid(row=5,column=0)
 		self.B = tk.Button(master, text ="4. Start Game recording software", command = self.startOBSCallBack).grid(row=6,column=0)
-		self.B = tk.Button(master, text ="5. Start Puzzle Game", command = self.startGameCallBack).grid(row=7,column=0)
+		self.B = tk.Button(master, text ="5. Start Puzzle Game", command = self.startGameCallBack).grid(row=7,column=0),
+		self.B = tk.Button(master, text ="6. Start Clock (Place in border around the game!)", command = self.startClockCallBack).grid(row=8,column=0)
 
 		#Recording channel
 		self.B = tk.Button(master, text ="Start game recording", command = self.startRecordingCallBack).grid(row=3,column=1)
 		self.B = tk.Button(master, text ="Stop game recording", command = self.stopRecordingCallBack).grid(row=4,column=1)
 		self.B = tk.Button(master, text ="Start BioWare Recording", command = self.startBiowareRecordingCallBack).grid(row=5,column=1)
 		self.B = tk.Button(master, text ="Stop BioWare Recording", command = self.stopBiowareRecordingCallBack).grid(row=6,column=1)
-		self.B = tk.Button(master, text ="Start Kinect Recording Button not working !press F8!", command = self.startKinectRecordingCallBack).grid(row=7,column=1)
-		self.B = tk.Button(master, text ="Stop Kinect Recording  Button not working !press F9!", command = self.stopKinectRecordingCallBack).grid(row=8,column=1)
+		self.B = tk.Button(master, text ="Start Kinect Recording", command = self.startKinectRecordingCallBack).grid(row=7,column=1)
+		self.B = tk.Button(master, text ="Stop Kinect Recording", command = self.stopKinectRecordingCallBack).grid(row=8,column=1)
 
 		
 		#Specials
 		self.B = tk.Button(master, text ="Press enter", command = self.enterCallBack).grid(row=3,column=2)
 		self.B = tk.Button(master, text ="Mouse 1", command = self.clickCallBack).grid(row=4,column=2)
 		self.B = tk.Button(master, text ="Mouse 2", command = self.click2CallBack).grid(row=5,column=2)
-		self.B = tk.Button(master, text ="TEST", command = self.testCallBack).grid(row=6,column=2)
-		self.B = tk.Button(master, text ="TEST2", command = self.test2CallBack).grid(row=7,column=2)
+		self.B = tk.Button(master, text ="Game: Camera Test", command = self.enterCallBack).grid(row=3,column=2)
+		self.B = tk.Button(master, text ="Game: Puzzle Start", command = self.testCallBack).grid(row=6,column=2)
+		self.B = tk.Button(master, text ="Game: Puzzle End", command = self.test2CallBack).grid(row=7,column=2)
 		#self.B = tk.Button(master, text ="Stop everything", command = self.stopOBSCallBack).grid(row=8,column=2)
 		#self.B = tk.Button(master, text ="Close window & Stop all", command = self.stopOBSCallBack).grid(row=9,column=2)
 

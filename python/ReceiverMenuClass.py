@@ -60,6 +60,15 @@ class ReceiverMenuClass():
 					break
 				print(data)
 
+				if data.decode() == "START_CLOCK":
+					if os.path.isfile("C:\\code\\python\\clock.py"):
+						os.startfile('c:\code\python\clock.py')
+					else:
+						print("Clock.py missing from the python folder.")
+				if data.decode() == "STOP_CLOCK":
+					os.system("TASKKILL /F /IM clock.py")
+
+
 				###KINECT
 				if data.decode() == "START_KINECT":
 					if os.path.isfile("C:\\code\\kinect\\Kinect_PCD_writer.exe"):
@@ -69,24 +78,27 @@ class ReceiverMenuClass():
 				if data.decode() == "STOP_KINECT":
 					os.system("TASKKILL /F /IM Kinect_PCD_writer.exe")
 				if data.decode() == "START_KINECT_RECORD":
-					#SendKeys.SendKeys("{F8}")
-					#pyautogui.press('f8')
-					#pyautogui.press('F8')
-					PyCWnd1 = win32ui.FindWindow( None, "Vidofnir" )
-					PyCWnd1.SetForegroundWindow()
-					PyCWnd1.SetFocus()
-
-					win32api.keybd_event(0x77, 0, )
-					time.sleep(1)
-					win32api.keybd_event(0x77, 0, 2 )
+					try:
+						PyCWnd1 = win32ui.FindWindow( None, "Vidofnir" )
+						PyCWnd1.SetForegroundWindow()
+						PyCWnd1.SetFocus()
+						win32api.keybd_event(0x77, 0, )
+						time.sleep(1)
+						win32api.keybd_event(0x77, 0, 2 )
+					except:
+						print("Kinect Viewer is not open?")
 				if data.decode() == "STOP_KINECT_RECORD":
-					PyCWnd1 = win32ui.FindWindow( None, "Vidofnir" )
-					PyCWnd1.SetForegroundWindow()
-					PyCWnd1.SetFocus()
+					try:
+						PyCWnd1 = win32ui.FindWindow( None, "Vidofnir" )
+						PyCWnd1.SetForegroundWindow()
+						PyCWnd1.SetFocus()
+						win32api.keybd_event(0x78, 0, )
+						time.sleep(1)
+						win32api.keybd_event(0x78, 0, 2 )
+					except:
+						print("Kinect Viewer is not open?")
 
-					win32api.keybd_event(0x78, 0, )
-					time.sleep(1)
-					win32api.keybd_event(0x78, 0, 2 )
+
 				### OLD
 				if data.decode() == "STARTALL":
 					os.startfile('C:\\silverfit\\SilverFit-3.0.2.10380\\Games\\PuzzleGame\\PuzzleGame.exe')
