@@ -15,7 +15,7 @@ def center(toplevel):
     size = tuple(int(_) for _ in toplevel.geometry().split('+')[0].split('x'))
     x = w/2 - size[0]/2
     y = h/2 - size[1]/2
-    toplevel.geometry("400x60+000+000")
+    toplevel.geometry("400x30+000+000")
 
 
 if __name__ == "__main__":

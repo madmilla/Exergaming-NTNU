@@ -27,7 +27,6 @@ class MainMenuClass():
 		self.app = ipMenuClass(self.newWindow)
 	def openServerPanel(self):
 		print('Button is pressed!')
-
 		self.newWindow = tk.Toplevel(self.master)
 		self.app = ServerMenuClass(self.newWindow)
 	def openReceiverPanel(self):
